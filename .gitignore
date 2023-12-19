@@ -12,4 +12,6 @@ configuration/ldap/*
 !configuration/logging.py
 !configuration/plugins.py
 super-linter.log
+*.DS_Store
+*DS_Store
 .DS_Store
