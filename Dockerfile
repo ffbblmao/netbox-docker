@@ -93,8 +93,8 @@ COPY docker/launch-netbox.sh /opt/netbox/launch-netbox.sh
 COPY configuration/ /etc/netbox/config/
 COPY docker/nginx-unit.json /etc/unit/
 
-# COPY --from=builder AHS_logo.png /opt/netbox/netbox/project-static/img/netbox_logo.png
-# COPY --from=builder AHS_logo.png /opt/netbox/netbox/static/netbox_logo.png
+COPY --from=builder AHS_logo.png /opt/netbox/netbox/project-static/img/netbox_logo.png
+COPY --from=builder AHS_logo.png /opt/netbox/netbox/static/netbox_logo.png
 
 WORKDIR /opt/netbox/netbox
 
