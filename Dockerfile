@@ -93,8 +93,8 @@ COPY docker/launch-netbox.sh /opt/netbox/launch-netbox.sh
 COPY configuration/ /etc/netbox/config/
 COPY docker/nginx-unit.json /etc/unit/
 
-COPY --from=builder AHS_logo.png /opt/netbox/netbox/project-static/img/netbox_logo.png
-COPY --from=builder AHS_logo.png /opt/netbox/netbox/static/netbox_logo.png
+# COPY --from=builder AHS_logo.png /opt/netbox/netbox/project-static/img/netbox_logo.png
+# COPY --from=builder AHS_logo.png /opt/netbox/netbox/static/netbox_logo.png
 
 WORKDIR /opt/netbox/netbox
 
@@ -106,6 +106,9 @@ RUN mkdir -p static /opt/unit/state/ /opt/unit/tmp/ \
       && cd /opt/netbox/ && SECRET_KEY="dummyKeyWithMinimumLength-------------------------" /opt/netbox/venv/bin/python -m mkdocs build \
           --config-file /opt/netbox/mkdocs.yml --site-dir /opt/netbox/netbox/project-static/docs/ \
       && SECRET_KEY="dummyKeyWithMinimumLength-------------------------" /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py collectstatic --no-input
+
+COPY --from=builder AHS_logo.png /opt/netbox/netbox/project-static/img/netbox_logo.png
+COPY --from=builder AHS_logo.png /opt/netbox/netbox/static/netbox_logo.png
 
 ENV LANG=C.utf8 PATH=/opt/netbox/venv/bin:$PATH
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
