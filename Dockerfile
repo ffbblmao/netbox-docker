@@ -107,8 +107,8 @@ RUN mkdir -p static /opt/unit/state/ /opt/unit/tmp/ \
           --config-file /opt/netbox/mkdocs.yml --site-dir /opt/netbox/netbox/project-static/docs/ \
       && SECRET_KEY="dummyKeyWithMinimumLength-------------------------" /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py collectstatic --no-input
 
-COPY --from=builder AHS_logo.png /opt/netbox/netbox/project-static/img/netbox_logo.png
-COPY --from=builder AHS_logo.png /opt/netbox/netbox/static/netbox_logo.png
+COPY ./AHS_logo.png /project-static/img/netbox_logo.png
+COPY AHS_logo.png /static/netbox_logo.png
 
 ENV LANG=C.utf8 PATH=/opt/netbox/venv/bin:$PATH
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
