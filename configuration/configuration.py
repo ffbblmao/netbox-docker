@@ -162,7 +162,7 @@ DEBUG = _environ_get_and_map('DEBUG', 'False', _AS_BOOL)
 # This parameter serves as a safeguard to prevent some potentially dangerous behavior,
 # such as generating new database schema migrations.
 # Set this to True only if you are actively developing the NetBox code base.
-DEVELOPER = _environ_get_and_map('DEVELOPER', 'False', _AS_BOOL)
+DEVELOPER = _environ_get_and_map('DEVELOPER', 'True', _AS_BOOL)
 
 # Email settings
 EMAIL = {
