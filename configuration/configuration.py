@@ -47,7 +47,7 @@ _AS_LIST = lambda value : list(filter(None, value.split(' ')))
 
 _BASE_DIR = dirname(dirname(abspath(__file__)))
 
-#########################
+#######################
 #                       #
 #   Required settings   #
 #                       #
