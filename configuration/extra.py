@@ -44,7 +44,6 @@
 
 
 ## This file can contain arbitrary Python code, e.g.:
-# from datetime import datetime
-# now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-# BANNER_TOP = f'<marquee width="200px">This instance started on {now}.</marquee>'
-#
+from datetime import datetime
+now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+BANNER_TOP = f'<marquee width="200px">This instance started on {now}.</marquee>'
